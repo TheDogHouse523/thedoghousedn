@@ -295,8 +295,8 @@
             padding: 0 40px;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 60px;
-        }
+            gap: 40px;
+}
 
         .info-box h3 {
             font-family: var(--schrift-serif);
@@ -430,6 +430,16 @@
             color: var(--braun);
             text-align: center;
             margin-bottom: 36px;
+        }
+        .marken-streifen h3 a {
+            color: var(--braun);
+            border-bottom: 1px solid var(--braun-hell);
+            padding-bottom: 1px;
+            transition: border-color 0.2s;
+        }
+
+        .marken-streifen h3 a:hover {
+            border-bottom-color: var(--braun);
         }
 
         .marken-logos {
@@ -592,6 +602,47 @@
         .footer-bottom a:hover {
             color: var(--weiss);
         }
+
+        .sektion-anfahrt {
+            max-width: 1100px;
+            margin: 0 auto 80px;
+            padding: 0 40px;
+        }
+
+        .anfahrt-inner h3 {
+            font-family: var(--schrift-serif);
+            font-size: 1.7rem;
+            font-weight: 400;
+            color: var(--braun);
+            margin-bottom: 20px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid var(--beige-dunkel);
+        }
+
+        .karte-link {
+            display: inline-block;
+            margin-top: 12px;
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--braun);
+            border-bottom: 1px solid var(--beige-dunkel);
+            padding-bottom: 2px;
+            transition: border-color 0.2s;
+            cursor: pointer;
+        }
+
+        .karte-link:hover {
+            border-bottom-color: var(--braun);
+}
+        }
+
+        @media (max-width: 768px) {
+            .sektion-anfahrt {
+                padding: 0 24px;
+                margin-bottom: 50px;
+    }
+}
 
         /* ══════════════════════════════════════
            MOBIL (max 768px)
@@ -778,57 +829,70 @@
         <p>Persönliche Beratung rund um Ernährung und Wohlbefinden deines Hundes - individuell, liebevoll, kompetent.</p>
     </div>
 
-    <!-- ═══════════ ÖFFNUNGSZEITEN + KONTAKT ═══════════ -->
-    <section class="sektion-info">
+<!-- ═══════════ ÖFFNUNGSZEITEN + KONTAKT + KARTE ═══════════ -->
+<section class="sektion-info">
 
-        <div class="info-box">
-            <h3>Öffnungszeiten</h3>
-            <table class="oeffnungszeiten-tabelle">
-                <tr class="geschlossen">
-                    <td>Sonntag &amp; Montag</td>
-                    <td>Geschlossen</td>
-                </tr>
-                <tr>
-                    <td>Dienstag - Freitag</td>
-                    <td>10:00 - 18:00 Uhr</td>
-                </tr>
-                <tr>
-                    <td>Samstag</td>
-                    <td>10:00 - 15:00 Uhr</td>
-                </tr>
-            </table>
+    <div class="info-box">
+        <h3>Öffnungszeiten</h3>
+        <table class="oeffnungszeiten-tabelle">
+            <tr class="geschlossen">
+                <td>Sonntag &amp; Montag</td>
+                <td>Geschlossen</td>
+            </tr>
+            <tr>
+                <td>Dienstag – Freitag</td>
+                <td>10:00 – 18:00 Uhr</td>
+            </tr>
+            <tr>
+                <td>Samstag</td>
+                <td>10:00 – 15:00 Uhr</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="info-box">
+        <h3>Kontakt &amp; Adresse</h3>
+
+        <div class="kontakt-zeile">
+            <span class="kontakt-icon">📍</span>
+            <p>Kaiserplatz 16<br>52349 Düren</p>
         </div>
 
-        <div class="info-box">
-            <h3>Kontakt &amp; Adresse</h3>
-
-            <div class="kontakt-zeile">
-                <span class="kontakt-icon">📍</span>
-                <p>Kaiserplatz 16<br>52349 Düren</p>
-            </div>
-
-            <div class="kontakt-zeile">
-                <span class="kontakt-icon">☎️</span>
-                <p><a href="tel:+49 2421 6951660">02421 6951660</a></p>
-            </div>
-
-             <div class="kontakt-zeile">
-                <span class="kontakt-icon">📞</span>
-                <p><a href="tel:+49 1578 6784298">+49 1578 6784298</a></p>
-            </div>
-
-            <div class="kontakt-zeile">
-                <span class="kontakt-icon">✉️</span>
-                <p><a href="mailto:info@thedoghousedn.de">info@thedoghousedn.de</a></p>
-            </div>
-
-            <div class="kontakt-zeile">
-                <span class="kontakt-icon">💬</span>
-                <p>Du hast Fragen zum Sortiment oder möchtest eine größere Bestellung aufgeben? Ruf uns gerne an!</p>
-            </div>
+        <div class="kontakt-zeile">
+            <span class="kontakt-icon">☎️</span>
+            <p><a href="tel:+4924216951660">02421 6951660</a></p>
         </div>
 
-    </section>
+        <div class="kontakt-zeile">
+            <span class="kontakt-icon">📞</span>
+            <p><a href="tel:+4915786784298">+49 1578 6784298</a></p>
+        </div>
+
+        <div class="kontakt-zeile">
+            <span class="kontakt-icon">✉️</span>
+            <p><a href="mailto:info@thedoghousedn.de">info@thedoghousedn.de</a></p>
+        </div>
+    </div>
+
+</section>
+
+<!-- ═══════════ ANFAHRT ═══════════ -->
+<section class="sektion-anfahrt">
+    <div class="anfahrt-inner">
+        <h3>Anfahrt</h3>
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2521.555324757588!2d6.478947876887489!3d50.80234906196382!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47bf69b9e5211951%3A0x711a32f91ef2b146!2sThe%20Dog%20House!5e0!3m2!1sde!2sde!4v1780836318313!5m2!1sde!2sde" 
+            width="1100px"
+            height="420"
+            style="border: none; border-radius: 2px; display: block;"
+            allowfullscreen
+            loading="lazy"
+            title="The Dog House Düren">
+        </iframe>
+        
+        </a>
+    </div>
+</section>
 
     <!-- ═══════════ BARF BERATUNGS-BANNER ═══════════ -->
     <div class="barf-banner">
@@ -839,7 +903,7 @@
 
     <!-- ═══════════ MARKEN-LOGOS ═══════════ -->
     <div class="marken-streifen">
-        <h3>Unsere Marken</h3>
+       <h3>Diese und weitere Marken <a href="marken.html">hier</a> entdecken</h3>
         <div class="marken-logos">
             <img
                 src="bilder/barfgold.png"
