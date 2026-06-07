@@ -634,15 +634,8 @@
 
         .karte-link:hover {
             border-bottom-color: var(--braun);
-}
-        }
 
-        @media (max-width: 768px) {
-            .sektion-anfahrt {
-                padding: 0 24px;
-                margin-bottom: 50px;
-    }
-}
+        }
 
         /* ══════════════════════════════════════
            MOBIL (max 768px)
@@ -692,6 +685,17 @@
                 gap: 40px;
                 margin: 50px auto;
                 padding: 0 24px;
+            }
+
+            .sektion-anfahrt {
+                padding: 0 24px;
+                margin-bottom: 50px;
+                overflow: hidden;
+            }
+
+            .sektion-anfahrt iframe {
+                width: 100% !important;
+                max-width: 100%;
             }
 
             .willkommen-bilder img:first-child {
