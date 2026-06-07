@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unsere Marken | The Dog House Düren</title>
+    <link rel="icon" type="image/png" href="bilder/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --braun:       #3d2b1f;
+            --braun-hell:  #6b4c3b;
+            --beige:       #f5ede3;
+            --beige-dunkel:#e8d9c8;
+            --weiss:       #ffffff;
+            --grau:        #666666;
+            --grau-hell:   #f9f6f3;
+            --text:        #2c2c2c;
+            --schrift-serif: 'Cormorant Garamond', Georgia, serif;
+            --schrift-sans:  'Lato', sans-serif;
+        }
+
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--schrift-sans); background-color: var(--weiss); color: var(--text); font-weight: 300; }
+        img { max-width: 100%; display: block; }
+        a { color: inherit; text-decoration: none; }
+
+        /* NAV */
+        header { position: sticky; top: 0; z-index: 200; background-color: var(--weiss); border-bottom: 1px solid #e8e0d8; }
+        nav { max-width: 1200px; margin: 0 auto; padding: 0 40px; height: 70px; display: flex; align-items: center; justify-content: space-between; }
+        .nav-logo { display: flex; align-items: center; gap: 12px; }
+        .nav-logo img { height: 46px; width: auto; }
+        .nav-logo span { font-family: var(--schrift-serif); font-size: 1.3rem; font-weight: 600; color: var(--braun); letter-spacing: 0.04em; }
+        .nav-links { list-style: none; display: flex; gap: 36px; }
+        .nav-links a { font-family: var(--schrift-sans); font-size: 0.82rem; font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text); transition: color 0.2s; padding-bottom: 2px; border-bottom: 1px solid transparent; }
+        .nav-links a:hover, .nav-links a.aktiv { color: var(--braun); border-bottom-color: var(--braun); }
+        .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+        .hamburger span { display: block; width: 24px; height: 2px; background: var(--braun); }
+
+        /* SEITEN-HERO */
+        .seiten-hero {
+            background-image: url('https://static.wixstatic.com/media/nsplsh_1ff25840f8a04515963a2b996557c0fa~mv2.jpg/v1/crop/x_0,y_855,w_5544,h_1991/fill/w_1200,h_430,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Image%20by%20James%20Lacy.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 280px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        .seiten-hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(61, 43, 31, 0.5);
+        }
+        .seiten-hero h1 {
+            font-family: var(--schrift-serif);
+            font-size: 3rem;
+            font-weight: 300;
+            color: var(--weiss);
+            letter-spacing: 0.08em;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* INHALT */
+        .sektion {
+            max-width: 1000px;
+            margin: 80px auto;
+            padding: 0 40px;
+        }
+
+        .sektion-intro {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .sektion-intro h2 {
+            font-family: var(--schrift-serif);
+            font-size: 2rem;
+            font-weight: 400;
+            color: var(--braun);
+            margin-bottom: 14px;
+        }
+
+        .sektion-intro p {
+            font-size: 0.92rem;
+            color: var(--grau);
+            line-height: 1.9;
+            max-width: 580px;
+            margin: 0 auto;
+        }
+
+        /* Marken-Grid */
+        .marken-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2px;
+        }
+
+        .marke-karte {
+            background-color: var(--grau-hell);
+            padding: 50px 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            transition: background 0.2s;
+            min-height: 200px;
+        }
+
+        .marke-karte:hover {
+            background-color: var(--beige);
+        }
+
+        .marke-karte img {
+            max-height: 70px;
+            width: auto;
+            object-fit: contain;
+            margin: 0 auto 16px;
+            opacity: 0.85;
+            transition: opacity 0.2s;
+        }
+
+        .marke-karte:hover img {
+            opacity: 1;
+        }
+
+        .marke-karte p {
+            font-size: 0.8rem;
+            color: var(--grau);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        /* Hinweis-Box */
+        .hinweis {
+            background-color: var(--beige);
+            border-left: 3px solid var(--braun-hell);
+            padding: 28px 32px;
+            margin-top: 60px;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .hinweis p {
+            font-family: var(--schrift-serif);
+            font-size: 1.15rem;
+            font-style: italic;
+            color: var(--braun);
+            line-height: 1.7;
+        }
+
+        .hinweis span {
+            display: block;
+            font-family: var(--schrift-sans);
+            font-size: 0.82rem;
+            font-style: normal;
+            color: var(--grau);
+            margin-top: 10px;
+            letter-spacing: 0.06em;
+        }
+
+        /* FOOTER */
+        footer { background-color: var(--braun); color: rgba(255,255,255,0.75); padding: 60px 40px 40px; }
+        .footer-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 40px; padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,0.12); }
+        .footer-col h4 { font-family: var(--schrift-serif); font-size: 1rem; font-weight: 400; color: var(--weiss); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 18px; }
+        .footer-col p, .footer-col address { font-size: 0.83rem; line-height: 2; font-style: normal; font-weight: 300; }
+        .footer-col a { color: rgba(255,255,255,0.65); transition: color 0.2s; }
+        .footer-col a:hover { color: var(--weiss); }
+        .footer-bottom { max-width: 1100px; margin: 28px auto 0; display: flex; justify-content: space-between; align-items: center; font-size: 0.78rem; color: rgba(255,255,255,0.4); }
+        .footer-bottom a { color: rgba(255,255,255,0.5); }
+        .footer-bottom a:hover { color: var(--weiss); }
+
+        @media (max-width: 768px) {
+            nav { padding: 0 20px; }
+            .nav-links { display: none; position: absolute; top: 70px; left: 0; right: 0; background: var(--weiss); flex-direction: column; gap: 0; border-bottom: 1px solid #e8e0d8; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+            .nav-links.offen { display: flex; }
+            .nav-links li a { display: block; padding: 16px 24px; border-bottom: 1px solid #f0e8df; }
+            .hamburger { display: flex; }
+            .seiten-hero h1 { font-size: 2rem; }
+            .marken-grid { grid-template-columns: 1fr 1fr; }
+            .sektion { padding: 0 24px; margin: 50px auto; }
+            .footer-inner { grid-template-columns: 1fr; gap: 30px; }
+            .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="index.html" class="nav-logo">
+                <img src="https://static.wixstatic.com/media/662c52_892ca821f0f645fea4841dcdb54caa55~mv2.png/v1/fill/w_500,h_500,al_c/662c52_892ca821f0f645fea4841dcdb54caa55~mv2.png" alt="The Dog House Logo" onerror="this.style.display='none'">
+                <span>The Dog House</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Willkommen</a></li>
+                <li><a href="marken.html" class="aktiv">Unsere Marken</a></li>
+                <li><a href="events.html">Events</a></li>
+            </ul>
+            <button class="hamburger" id="hamburger" aria-label="Menü öffnen">
+                <span></span><span></span><span></span>
+            </button>
+        </nav>
+    </header>
+
+    <div class="seiten-hero">
+        <h1>Unsere Marken</h1>
+    </div>
+
+    <section class="sektion">
+        <div class="sektion-intro">
+            <h2>Hochwertige Marken für deinen Hund</h2>
+            <p>Wir führen sorgfältig ausgewählte Marken, die für Qualität, Natürlichkeit und das Wohlbefinden deines Hundes stehen. Lass dich bei uns persönlich beraten.</p>
+        </div>
+
+        <div class="marken-grid">
+            <div class="marke-karte">
+                <img src="bilder/barfgold.png" alt="Barf">
+                <p>Barf</p>
+            </div>
+            <div class="marke-karte">
+                <img src="bilder/Fresco.png" alt="Snacks">
+                <p>Snacks & Futter</p>
+            </div>
+            <div class="marke-karte">
+                <img src="bilder/nutrimentaniforte.jpg" alt="Pflege">
+                <p>Pflege & Futter</p>
+            </div>
+             <div class="marke-karte">
+                <img src="bilder/paulpaulina.png" alt="Barf">
+                <p>BARF & Snacks</p>
+            </div>
+            <div class="marke-karte">
+                <img src="bilder/Snackies.jpg" alt="Snacks">
+                <p>Snacks</p>
+            </div>
+             <div class="marke-karte">
+                <img src="bilder/qchefs.png" alt="Pflege">
+                <p>Pflege</p>
+            </div>
+            <div class="marke-karte">
+                <img src="bilder/lakefields2.jpg" alt="Snacks & Futter">
+                <p>Snacks & Futter</p>
+            </div>
+            <div class="marke-karte">
+                <img src="bilder/vegdog.png" alt="Snacks & Futter">
+                <p>Snacks & Futter</p>
+            </div>
+             <div class="marke-karte">
+                <img src="bilder/cdvet.png" alt="Pflege">
+                <p>Pflege</p>
+            </div>
+            <div class="marke-karte">
+                <img src="bilder/annyx.png" alt="Geschirre">
+                <p>Geschirre</p>
+            </div>
+            <div class="marke-karte">
+                <img src="bilder/Maul.png" alt="Leinen & Halsbänder">
+                <p>Leinen & Halsbänder</p>
+            </div>
+             <div class="marke-karte">
+                <img src="bilder/redoggo.png" alt="Spielzeug">
+                <p>Spielzeug</p>
+            </div>
+            
+            
+        </div>
+
+        <div class="hinweis">
+            <p> Dies war eine kleine Auswahl unserer Marken - komm vorbei und entdecke noch mehr toller Produkte für dich und deinen Vierbeiner!</p>
+            <span>☎️ 02421 6951660 oder 📞 +49 1578 6784298 &nbsp;·&nbsp; Kaiserplatz 16, 52349 Düren</span>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-col">
+                <h4>The Dog House</h4>
+                <p>BARF & hochwertiger Tierbedarf<br>mitten in der Dürener Innenstadt.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Öffnungszeiten</h4>
+                <p>So – Mo: Geschlossen<br>Di – Fr: 10:00 – 18:00 Uhr<br>Samstag: 10:00 – 15:00 Uhr</p>
+            </div>
+            <div class="footer-col">
+                <h4>Impressum</h4>
+                <address>
+                    The Dog House Tayag & Lutterbach GbR<br>
+                    Kaiserplatz 16, 52349 Düren<br>
+                    <a href="tel:024216951660">02421 6951660</a><br>
+                    <a href="mailto:info@thedoghousedn.de">info@thedoghousedn.de</a>
+                </address>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2026 The Dog House Düren</span>
+            <a href="datenschutz.html">Datenschutzerklärung</a>
+        </div>
+    </footer>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+        hamburger.addEventListener('click', () => { navLinks.classList.toggle('offen'); });
+        navLinks.querySelectorAll('a').forEach(link => { link.addEventListener('click', () => { navLinks.classList.remove('offen'); }); });
+    </script>
+</body>
+</html>

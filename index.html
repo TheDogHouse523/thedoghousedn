@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Dog House Düren | Alles fürs Hundeherz</title>
+    <link rel="icon" type="image/png" href="bilder/logo.png">
+    <meta name="description" content="The Dog House Düren: BARF, Tiernahrung, Snacks & Zubehör. Persönliche Beratung, frische Produkte und alles für glückliche Vierbeiner - zentral in Düren.">
+
+    <!-- Google Fonts: Cormorant Garamond (elegant serif wie auf der Wix-Seite) + Lato für Fließtext -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* ══════════════════════════════════════
+           GRUNDEINSTELLUNGEN
+        ══════════════════════════════════════ */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --braun:       #3d2b1f;
+            --braun-hell:  #6b4c3b;
+            --beige:       #f5ede3;
+            --beige-dunkel:#e8d9c8;
+            --weiss:       #ffffff;
+            --grau:        #666666;
+            --grau-hell:   #f9f6f3;
+            --text:        #2c2c2c;
+            --schrift-serif: 'Cormorant Garamond', Georgia, serif;
+            --schrift-sans:  'Lato', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--schrift-sans);
+            background-color: var(--weiss);
+            color: var(--text);
+            font-weight: 300;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* ══════════════════════════════════════
+           NAVIGATION
+        ══════════════════════════════════════ */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 200;
+            background-color: var(--weiss);
+            border-bottom: 1px solid #e8e0d8;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .nav-logo img {
+            height: 46px;
+            width: auto;
+        }
+
+        .nav-logo span {
+            font-family: var(--schrift-serif);
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--braun);
+            letter-spacing: 0.04em;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 36px;
+        }
+
+        .nav-links a {
+            font-family: var(--schrift-sans);
+            font-size: 0.82rem;
+            font-weight: 400;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--text);
+            transition: color 0.2s;
+            padding-bottom: 2px;
+            border-bottom: 1px solid transparent;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.aktiv {
+            color: var(--braun);
+            border-bottom-color: var(--braun);
+        }
+
+        /* Hamburger (Mobil) */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 4px;
+        }
+        .hamburger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--braun);
+            transition: all 0.3s;
+        }
+
+        /* ══════════════════════════════════════
+           HERO - großes Bild oben
+        ══════════════════════════════════════ */
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 380px;
+            overflow: hidden;
+            background-color: var(--beige);
+        }
+
+        .hero-bg {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 30%;
+            filter: brightness(0.78);
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .hero-overlay h1 {
+            font-family: var(--schrift-serif);
+            font-size: 3.8rem;
+            font-weight: 300;
+            color: var(--weiss);
+            letter-spacing: 0.06em;
+            text-shadow: 0 2px 20px rgba(0,0,0,0.35);
+            line-height: 1.2;
+            margin-bottom: 16px;
+        }
+
+        .hero-overlay p {
+            font-family: var(--schrift-sans);
+            font-size: 0.9rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.88);
+            text-shadow: 0 1px 8px rgba(0,0,0,0.4);
+        }
+
+        /* ══════════════════════════════════════
+           WILLKOMMENS-SEKTION (zweispaltig)
+        ══════════════════════════════════════ */
+        .sektion-willkommen {
+            max-width: 1100px;
+            margin: 80px auto;
+            padding: 0 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: start;
+        }
+
+        .willkommen-text h2 {
+            font-family: var(--schrift-serif);
+            font-size: 2.4rem;
+            font-weight: 400;
+            color: var(--braun);
+            margin-bottom: 24px;
+            line-height: 1.25;
+        }
+
+        .willkommen-text p {
+            font-size: 0.95rem;
+            line-height: 1.9;
+            color: #555;
+            margin-bottom: 16px;
+        }
+
+        /* Angebotsliste */
+        .angebote-liste {
+            list-style: none;
+            margin: 24px 0 28px;
+        }
+
+        .angebote-liste li {
+            font-size: 0.92rem;
+            padding: 10px 0 10px 26px;
+            border-bottom: 1px solid #ede5dc;
+            color: #444;
+            position: relative;
+            line-height: 1.5;
+        }
+
+        .angebote-liste li:first-child {
+            border-top: 1px solid #ede5dc;
+        }
+
+        .angebote-liste li::before {
+            content: "—";
+            position: absolute;
+            left: 0;
+            color: var(--braun-hell);
+            font-weight: 300;
+        }
+
+        /* Bilder-Collage rechts */
+        .willkommen-bilder {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto auto;
+            gap: 10px;
+        }
+
+        .willkommen-bilder img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 2px;
+        }
+
+        .willkommen-bilder img:first-child {
+            grid-column: 1 / -1;
+            height: 260px;
+        }
+
+        /* ══════════════════════════════════════
+           TRENNSTREIFEN
+        ══════════════════════════════════════ */
+        .trennstreifen {
+            width: 100%;
+            background-color: var(--beige);
+            padding: 50px 40px;
+            text-align: center;
+        }
+
+        .trennstreifen p {
+            font-family: var(--schrift-serif);
+            font-size: 1.55rem;
+            font-weight: 300;
+            font-style: italic;
+            color: var(--braun);
+            letter-spacing: 0.02em;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* ══════════════════════════════════════
+           ÖFFNUNGSZEITEN + KONTAKT (nebeneinander)
+        ══════════════════════════════════════ */
+        .sektion-info {
+            max-width: 1100px;
+            margin: 80px auto;
+            padding: 0 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        .info-box h3 {
+            font-family: var(--schrift-serif);
+            font-size: 1.7rem;
+            font-weight: 400;
+            color: var(--braun);
+            margin-bottom: 28px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid var(--beige-dunkel);
+        }
+
+        /* Öffnungszeiten-Tabelle */
+        .oeffnungszeiten-tabelle {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .oeffnungszeiten-tabelle tr {
+            border-bottom: 1px solid #f0e8df;
+        }
+
+        .oeffnungszeiten-tabelle td {
+            padding: 12px 0;
+            font-size: 0.9rem;
+            color: #555;
+            font-weight: 300;
+        }
+
+        .oeffnungszeiten-tabelle td:last-child {
+            text-align: right;
+            font-weight: 400;
+            color: var(--braun-hell);
+        }
+
+        .oeffnungszeiten-tabelle .geschlossen td:last-child {
+            color: #aaa;
+            font-weight: 300;
+        }
+
+        /* Kontakt */
+        .kontakt-zeile {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            margin-bottom: 20px;
+        }
+
+        .kontakt-icon {
+            width: 20px;
+            flex-shrink: 0;
+            margin-top: 2px;
+            color: var(--braun-hell);
+            font-size: 1rem;
+        }
+
+        .kontakt-zeile p {
+            font-size: 0.9rem;
+            color: #555;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        .kontakt-zeile a {
+            color: var(--braun);
+            transition: color 0.2s;
+        }
+
+        .kontakt-zeile a:hover {
+            color: var(--braun-hell);
+            text-decoration: underline;
+        }
+
+        /* ══════════════════════════════════════
+           BARF-BERATUNG BANNER
+        ══════════════════════════════════════ */
+        .barf-banner {
+            background-color: var(--braun);
+            color: var(--weiss);
+            padding: 70px 40px;
+            text-align: center;
+        }
+
+        .barf-banner h2 {
+            font-family: var(--schrift-serif);
+            font-size: 2.2rem;
+            font-weight: 300;
+            letter-spacing: 0.04em;
+            margin-bottom: 16px;
+        }
+
+        .barf-banner p {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.75);
+            max-width: 560px;
+            margin: 0 auto 30px;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        .btn-hell {
+            display: inline-block;
+            padding: 14px 36px;
+            border: 1px solid rgba(255,255,255,0.6);
+            color: var(--weiss);
+            font-family: var(--schrift-sans);
+            font-size: 0.78rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            transition: background 0.2s, border-color 0.2s;
+        }
+
+        .btn-hell:hover {
+            background-color: rgba(255,255,255,0.12);
+            border-color: var(--weiss);
+        }
+
+        /* ══════════════════════════════════════
+           MARKEN-LOGOS STREIFEN
+        ══════════════════════════════════════ */
+        .marken-streifen {
+            background-color: var(--grau-hell);
+            padding: 50px 40px;
+        }
+
+        .marken-streifen h3 {
+            font-family: var(--schrift-serif);
+            font-size: 1.1rem;
+            font-weight: 400;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--braun);
+            text-align: center;
+            margin-bottom: 36px;
+        }
+
+        .marken-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .marken-logos img {
+            height: 38px;
+            width: auto;
+            object-fit: contain;
+            opacity: 0.75;
+            transition: opacity 0.2s;
+            filter: grayscale(20%);
+        }
+
+        .marken-logos img:hover {
+            opacity: 1;
+        }
+
+        /* ══════════════════════════════════════
+           INSTAGRAM / SOCIAL
+        ══════════════════════════════════════ */
+        .sektion-social {
+            max-width: 700px;
+            margin: 80px auto;
+            padding: 0 40px;
+            text-align: center;
+        }
+
+        .sektion-social h3 {
+            font-family: var(--schrift-serif);
+            font-size: 1.9rem;
+            font-weight: 400;
+            color: var(--braun);
+            margin-bottom: 12px;
+        }
+
+        .sektion-social p {
+            font-size: 0.88rem;
+            color: var(--grau);
+            margin-bottom: 28px;
+            line-height: 1.7;
+        }
+
+        .social-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn-social {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 28px;
+            border: 1px solid var(--braun);
+            color: var(--braun);
+            font-size: 0.78rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .btn-social:hover {
+            background-color: var(--braun);
+            color: var(--weiss);
+        }
+
+        .btn-social svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* ══════════════════════════════════════
+           FOOTER
+        ══════════════════════════════════════ */
+        footer {
+            background-color: var(--braun);
+            color: rgba(255,255,255,0.75);
+            padding: 60px 40px 40px;
+        }
+
+        .footer-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 40px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid rgba(255,255,255,0.12);
+        }
+
+        .footer-col h4 {
+            font-family: var(--schrift-serif);
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--weiss);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+        }
+
+        .footer-col p,
+        .footer-col address {
+            font-size: 0.83rem;
+            line-height: 2;
+            font-style: normal;
+            font-weight: 300;
+        }
+
+        .footer-col a {
+            color: rgba(255,255,255,0.65);
+            transition: color 0.2s;
+        }
+
+        .footer-col a:hover {
+            color: var(--weiss);
+        }
+
+        .footer-social-links {
+            display: flex;
+            gap: 14px;
+            margin-top: 6px;
+        }
+
+        .footer-social-links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.82rem;
+            color: rgba(255,255,255,0.65);
+            letter-spacing: 0.06em;
+            transition: color 0.2s;
+        }
+
+        .footer-social-links a:hover {
+            color: var(--weiss);
+        }
+
+        .footer-bottom {
+            max-width: 1100px;
+            margin: 28px auto 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.78rem;
+            color: rgba(255,255,255,0.4);
+        }
+
+        .footer-bottom a {
+            color: rgba(255,255,255,0.5);
+            transition: color 0.2s;
+        }
+
+        .footer-bottom a:hover {
+            color: var(--weiss);
+        }
+
+        /* ══════════════════════════════════════
+           MOBIL (max 768px)
+        ══════════════════════════════════════ */
+        @media (max-width: 768px) {
+            nav {
+                padding: 0 20px;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: var(--weiss);
+                flex-direction: column;
+                gap: 0;
+                border-bottom: 1px solid #e8e0d8;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            }
+
+            .nav-links.offen {
+                display: flex;
+            }
+
+            .nav-links li a {
+                display: block;
+                padding: 16px 24px;
+                border-bottom: 1px solid #f0e8df;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hero {
+                height: 340px;
+            }
+
+            .hero-overlay h1 {
+                font-size: 2.4rem;
+            }
+
+            .sektion-willkommen {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                margin: 50px auto;
+                padding: 0 24px;
+            }
+
+            .willkommen-bilder img:first-child {
+                height: 200px;
+            }
+
+            .willkommen-bilder img {
+                height: 140px;
+            }
+
+            .sektion-info {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                margin: 50px auto;
+                padding: 0 24px;
+            }
+
+            .footer-inner {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 8px;
+                text-align: center;
+            }
+
+            .barf-banner {
+                padding: 50px 24px;
+            }
+
+            .barf-banner h2 {
+                font-size: 1.7rem;
+            }
+
+            .trennstreifen p {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ═══════════ HEADER / NAVIGATION ═══════════ -->
+    <header>
+        <nav>
+            <a href="index.html" class="nav-logo">
+                <!-- Logo -->
+                <img
+                    src="bilder/logo.png"
+                    alt="The Dog House Logo"
+                    onerror="this.style.display='none'"
+                >
+                <span>The Dog House</span>
+            </a>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html" class="aktiv">Willkommen</a></li>
+                <li><a href="marken.html">Unsere Marken</a></li>
+                <li><a href="events.html">Events</a></li>
+            </ul>
+
+            <button class="hamburger" id="hamburger" aria-label="Menü öffnen">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- ═══════════ HERO ═══════════ -->
+    <section class="hero">
+        <!-- Ladenbild als Hero -->
+        <img
+            class="hero-bg"
+            src="bilder/laden.png"
+            alt="The Dog House Laden in Düren"
+            onerror="this.src=''; this.parentElement.style.background='#3d2b1f';"
+        >
+        <div class="hero-overlay">
+            <h1>The Dog House</h1>
+            <p>Düren &nbsp;·&nbsp; BARF & hochwertiger Tierbedarf</p>
+        </div>
+    </section>
+
+    <!-- ═══════════ WILLKOMMEN (Text + Bilder) ═══════════ -->
+    <section class="sektion-willkommen">
+
+        <!-- Linke Spalte: Text -->
+        <div class="willkommen-text">
+            <h2>Herzlich Willkommen!</h2>
+            <p>
+                Wir freuen uns sehr, euch in unserem <strong>Dog House</strong>
+                in der Dürener Innenstadt begrüßen zu dürfen!
+            </p>
+
+            <ul class="angebote-liste">
+                <li>Leckerli-Bar mit tollen Snacks &amp; Kauartikeln</li>
+                <li>BARF &amp; hochwertiges Hundefutter</li>
+                <li>Hochwertiges Spielzeug</li>
+                <li>Funktionales &amp; stilvolles Hundezubehör</li>
+                <li>Auch kleine Highlights für Herrchen &amp; Frauchen</li>
+            </ul>
+
+            <p>
+                Wir beraten dich gerne persönlich rund um Ernährung und Wohlbefinden deines Hundes.
+                Auf Wunsch erstellen wir auch <strong>individuelle BARF-Pläne.</strong>
+            </p>
+            <p>
+                Außerdem planen wir zukünftig regelmäßige Events für Hund &amp; Mensch. Infos dazu findest du auf Instagram und hier auf der Website!
+            </p>
+        </div>
+
+        <!-- Rechte Spalte: Bilder-Collage -->
+        <div class="willkommen-bilder">
+            <img
+                src="bilder/tisch 2.png"
+                alt="The Dog House Laden Innenansicht"
+            >
+            <img
+                src="bilder/Schaufenster.png"
+                alt="Schaufenster"
+            >
+            <img
+                src="bilder/Regale.png"
+                alt="Regale"
+            >
+        </div>
+
+    </section>
+
+    <!-- ═══════════ ZITAT-TRENNSTREIFEN ═══════════ -->
+    <div class="trennstreifen">
+        <p>Persönliche Beratung rund um Ernährung und Wohlbefinden deines Hundes - individuell, liebevoll, kompetent.</p>
+    </div>
+
+    <!-- ═══════════ ÖFFNUNGSZEITEN + KONTAKT ═══════════ -->
+    <section class="sektion-info">
+
+        <div class="info-box">
+            <h3>Öffnungszeiten</h3>
+            <table class="oeffnungszeiten-tabelle">
+                <tr class="geschlossen">
+                    <td>Sonntag &amp; Montag</td>
+                    <td>Geschlossen</td>
+                </tr>
+                <tr>
+                    <td>Dienstag - Freitag</td>
+                    <td>10:00 - 18:00 Uhr</td>
+                </tr>
+                <tr>
+                    <td>Samstag</td>
+                    <td>10:00 - 15:00 Uhr</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="info-box">
+            <h3>Kontakt &amp; Adresse</h3>
+
+            <div class="kontakt-zeile">
+                <span class="kontakt-icon">📍</span>
+                <p>Kaiserplatz 16<br>52349 Düren</p>
+            </div>
+
+            <div class="kontakt-zeile">
+                <span class="kontakt-icon">☎️</span>
+                <p><a href="tel:+49 2421 6951660">02421 6951660</a></p>
+            </div>
+
+             <div class="kontakt-zeile">
+                <span class="kontakt-icon">📞</span>
+                <p><a href="tel:+49 1578 6784298">+49 1578 6784298</a></p>
+            </div>
+
+            <div class="kontakt-zeile">
+                <span class="kontakt-icon">✉️</span>
+                <p><a href="mailto:info@thedoghousedn.de">info@thedoghousedn.de</a></p>
+            </div>
+
+            <div class="kontakt-zeile">
+                <span class="kontakt-icon">💬</span>
+                <p>Du hast Fragen zum Sortiment oder möchtest eine größere Bestellung aufgeben? Ruf uns gerne an!</p>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- ═══════════ BARF BERATUNGS-BANNER ═══════════ -->
+    <div class="barf-banner">
+        <h2>Individuelle BARF-Beratung</h2>
+        <p>Wir erstellen dir einen auf deinen Hund abgestimmten BARF-Plan - persönlich, fundiert und mit Herz. Komm einfach bei uns vorbei oder ruf an.</p>
+        <a href="tel:024216951660" class="btn-hell">Jetzt anrufen</a>
+    </div>
+
+    <!-- ═══════════ MARKEN-LOGOS ═══════════ -->
+    <div class="marken-streifen">
+        <h3>Unsere Marken</h3>
+        <div class="marken-logos">
+            <img
+                src="bilder/barfgold.png"
+                alt="Barfgold"
+            >
+            <img
+                src="bilder/Fresco.png"
+                alt="Fresco"
+            >
+            <img
+                src="bilder/aniforte.png"
+                alt="Aniforte"
+            >
+        </div>
+    </div>
+
+    <!-- ═══════════ SOCIAL MEDIA ═══════════ -->
+    <section class="sektion-social">
+        <h3>Folge uns auf Social Media</h3>
+        <p>Für aktuelle Neuigkeiten, Events und Einblicke in unseren Laden - folg uns auf Instagram und Facebook!</p>
+        <div class="social-buttons">
+            <a href="https://www.instagram.com/thedoghousedueren/" target="_blank" rel="noopener" class="btn-social">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                Instagram
+            </a>
+            <a href="https://www.facebook.com/share/1JcheD6YFg/?mibextid=wwXIfr" target="_blank" rel="noopener" class="btn-social">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                Facebook
+            </a>
+        </div>
+    </section>
+
+    <!-- ═══════════ FOOTER ═══════════ -->
+    <footer>
+        <div class="footer-inner">
+
+            <div class="footer-col">
+                <h4>The Dog House</h4>
+                <p>
+                    BARF &amp; hochwertiger Tierbedarf<br>
+                    mitten in der Dürener Innenstadt.<br>
+                    Persönliche Beratung - mit Herz.
+                </p>
+                <div class="footer-social-links" style="margin-top: 16px;">
+                    <a href="https://www.instagram.com/thedoghousedueren/" target="_blank">Instagram</a>
+                    <a href="https://www.facebook.com/share/1JcheD6YFg/?mibextid=wwXIfr" target="_blank">Facebook</a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4>Öffnungszeiten</h4>
+                <p>
+                    So - Mo: Geschlossen<br>
+                    Di - Fr: 10:00 - 18:00 Uhr<br>
+                    Samstag: 10:00 - 15:00 Uhr
+                </p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Impressum</h4>
+                <address>
+                    The Dog House Tayag &amp; Lutterbach GbR<br>
+                    Shara Tayag &amp; Justin Lutterbach<br>
+                    USt-IdNr: DE459472217<br>
+                    Kaiserplatz 16, 52349 Düren<br>
+                    <a href="tel:+4915786784298">+49 1578 6784298</a><br>
+                    <a href="mailto:info@thedoghousedn.de">info@thedoghousedn.de</a>
+                </address>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <span>© 2026 The Dog House Düren</span>
+            <a href="datenschutz.html">Datenschutzerklärung</a>
+        </div>
+    </footer>
+
+    <!-- ═══════════ JAVASCRIPT (nur Hamburger-Menü) ═══════════ -->
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navLinks  = document.getElementById('navLinks');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('offen');
+        });
+
+        // Menü schließen wenn Link geklickt (Mobil)
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('offen');
+            });
+        });
+    </script>
+
+</body>
+</html>
