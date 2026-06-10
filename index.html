@@ -7,11 +7,89 @@
     <link rel="icon" type="image/png" href="bilder/logo.png">
     <meta name="description" content="The Dog House Düren: BARF, Tiernahrung, Snacks & Zubehör. Persönliche Beratung, frische Produkte und alles für glückliche Vierbeiner - zentral in Düren.">
 
-    <!-- Google Fonts: Cormorant Garamond (elegant serif wie auf der Wix-Seite) + Lato für Fließtext -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- Lokale Fonts – kein Google-Server-Kontakt -->
+<style>
+    /* ── Cormorant Garamond ── */
+    @font-face {
+        font-family: 'Cormorant Garamond';
+        src: url('fonts/cormorant-garamond-v21-latin-300.woff2') format('woff2');
+        font-weight: 300;
+        font-style: normal;
+        font-display: swap;
+    }
+    @font-face {
+        font-family: 'Cormorant Garamond';
+        src: url('fonts/cormorant-garamond-v21-latin-300italic.woff2') format('woff2');
+        font-weight: 300;
+        font-style: italic;
+        font-display: swap;
+    }
+    @font-face {
+        font-family: 'Cormorant Garamond';
+        src: url('fonts/cormorant-garamond-v21-latin-regular.woff2') format('woff2');
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+    }
+    @font-face {
+        font-family: 'Cormorant Garamond';
+        src: url('fonts/cormorant-garamond-v21-latin-italic.woff2') format('woff2');
+        font-weight: 400;
+        font-style: italic;
+        font-display: swap;
+    }
+    @font-face {
+        font-family: 'Cormorant Garamond';
+        src: url('fonts/cormorant-garamond-v21-latin-600.woff2') format('woff2');
+        font-weight: 600;
+        font-style: normal;
+        font-display: swap;
+    }
+    @font-face {
+        font-family: 'Cormorant Garamond';
+        src: url('fonts/cormorant-garamond-v21-latin-600italic.woff2') format('woff2');
+        font-weight: 600;
+        font-style: italic;
+        font-display: swap;
+    }
 
+    /* ── Lato ── */
+    @font-face {
+        font-family: 'Lato';
+        src: url('fonts/lato-v25-latin-300.woff2') format('woff2');
+        font-weight: 300;
+        font-style: normal;
+        font-display: swap;
+    }
+    @font-face {
+        font-family: 'Lato';
+        src: url('fonts/lato-v25-latin-300italic.woff2') format('woff2');
+        font-weight: 300;
+        font-style: italic;
+        font-display: swap;
+    }
+    @font-face {
+        font-family: 'Lato';
+        src: url('fonts/lato-v25-latin-regular.woff2') format('woff2');
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+    }
+    @font-face {
+        font-family: 'Lato';
+        src: url('fonts/lato-v25-latin-italic.woff2') format('woff2');
+        font-weight: 400;
+        font-style: italic;
+        font-display: swap;
+    }
+    @font-face {
+        font-family: 'Lato';
+        src: url('fonts/lato-v25-latin-700.woff2') format('woff2');
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+    }
+</style>
     <style>
         /* ══════════════════════════════════════
            GRUNDEINSTELLUNGEN
@@ -603,38 +681,47 @@
             color: var(--weiss);
         }
 
-        .sektion-anfahrt {
-            max-width: 1100px;
-            margin: 0 auto 80px;
-            padding: 0 40px;
+        .karte-wrapper {
+            position: relative;
+            width: 100%;
         }
 
-        .anfahrt-inner h3 {
-            font-family: var(--schrift-serif);
-            font-size: 1.7rem;
-            font-weight: 400;
-            color: var(--braun);
-            margin-bottom: 20px;
-            padding-bottom: 14px;
-            border-bottom: 1px solid var(--beige-dunkel);
+        .karte-overlay {
+            background-color: var(--beige);
+            border: 1px solid var(--beige-dunkel);
+            border-radius: 2px;
+            height: 420px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 30px;
+            gap: 20px;
         }
 
-        .karte-link {
-            display: inline-block;
-            margin-top: 12px;
-            font-size: 0.75rem;
-            letter-spacing: 0.1em;
+        .karte-overlay p {
+            font-size: 0.85rem;
+            color: var(--grau);
+            max-width: 340px;
+            line-height: 1.7;
+        }
+
+        .btn-karte {
+            padding: 12px 28px;
+            background-color: var(--braun);
+            color: var(--weiss);
+            border: none;
+            font-family: var(--schrift-sans);
+            font-size: 0.78rem;
+            letter-spacing: 0.14em;
             text-transform: uppercase;
-            color: var(--braun);
-            border-bottom: 1px solid var(--beige-dunkel);
-            padding-bottom: 2px;
-            transition: border-color 0.2s;
             cursor: pointer;
+            transition: background 0.2s;
         }
 
-        .karte-link:hover {
-            border-bottom-color: var(--braun);
-
+        .btn-karte:hover {
+            background-color: var(--braun-hell);
         }
 
         /* ══════════════════════════════════════
@@ -881,21 +968,22 @@
 </section>
 
 <!-- ═══════════ ANFAHRT ═══════════ -->
-<section class="sektion-anfahrt">
-    <div class="anfahrt-inner">
-        <h3>Anfahrt</h3>
-        <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2521.555324757588!2d6.478947876887489!3d50.80234906196382!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47bf69b9e5211951%3A0x711a32f91ef2b146!2sThe%20Dog%20House!5e0!3m2!1sde!2sde!4v1780836318313!5m2!1sde!2sde" 
-            width="1100px"
-            height="420"
-            style="border: none; border-radius: 2px; display: block;"
-            allowfullscreen
-            loading="lazy"
-            title="The Dog House Düren">
-        </iframe>
-        
-        </a>
+<div class="karte-wrapper" id="karteWrapper">
+    <div class="karte-overlay" id="karteOverlay">
+        <p>Diese Karte wird von Google Maps bereitgestellt. Beim Laden werden Daten an Google übertragen.</p>
+        <button onclick="karteAktivieren()" class="btn-karte">Karte laden</button>
     </div>
+    <iframe
+        id="karteIframe"
+        data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2521.555324757588!2d6.478947876887489!3d50.80234906196382!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47bf69b9e5211951%3A0x711a32f91ef2b146!2sThe%20Dog%20House!5e0!3m2!1sde!2sde!4v1781075111415!5m2!1sde!2sde"
+        width="100%"
+        height="420"
+        style="border: none; border-radius: 2px; display: none;"
+        allowfullscreen
+        loading="lazy"
+        title="The Dog House Düren">
+    </iframe>
+</div>
 </section>
 
     <!-- ═══════════ BARF BERATUNGS-BANNER ═══════════ -->
@@ -1001,6 +1089,15 @@
                 navLinks.classList.remove('offen');
             });
         });
+
+        function karteAktivieren() {
+        const overlay = document.getElementById('karteOverlay');
+        const iframe  = document.getElementById('karteIframe');
+        iframe.src = iframe.dataset.src;
+        iframe.style.display = 'block';
+        overlay.style.display = 'none';
+        }
+    
     </script>
 
 </body>
