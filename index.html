@@ -719,7 +719,8 @@
             cursor: pointer;
             transition: background 0.2s;
         }
-
+        .footer-bottom-links { display: flex; gap: 16px; }
+        
         .btn-karte:hover {
             background-color: var(--braun-hell);
         }
@@ -1040,8 +1041,8 @@
                     Persönliche Beratung - mit Herz.
                 </p>
                 <div class="footer-social-links" style="margin-top: 16px;">
-                    <a href="https://www.instagram.com/thedoghousedueren/" target="_blank">Instagram</a>
-                    <a href="https://www.facebook.com/share/1JcheD6YFg/?mibextid=wwXIfr" target="_blank">Facebook</a>
+                    <a href="https://www.instagram.com/thedoghousedueren/" target="_blank" rel="noopener">Instagram</a>
+                    <a href="https://www.facebook.com/share/1JcheD6YFg/?mibextid=wwXIfr" target="_blank" rel="noopener">Facebook</a>
                 </div>
             </div>
 
@@ -1058,10 +1059,8 @@
                 <h4>Impressum</h4>
                 <address>
                     The Dog House Tayag &amp; Lutterbach GbR<br>
-                    Shara Tayag &amp; Justin Lutterbach<br>
-                    USt-IdNr: DE459472217<br>
                     Kaiserplatz 16, 52349 Düren<br>
-                    <a href="tel:+4915786784298">+49 1578 6784298</a><br>
+                    <a href="tel:+4924216951660">02421 6951660</a><br>
                     <a href="mailto:info@thedoghousedn.de">info@thedoghousedn.de</a>
                 </address>
             </div>
@@ -1070,7 +1069,10 @@
 
         <div class="footer-bottom">
             <span>© 2026 The Dog House Düren</span>
-            <a href="datenschutz.html">Datenschutzerklärung</a>
+            <div class="footer-bottom-links">
+                <a href="impressum.html">Impressum</a>
+                <a href="datenschutz.html">Datenschutzerklärung</a>
+            </div>
         </div>
     </footer>
 
